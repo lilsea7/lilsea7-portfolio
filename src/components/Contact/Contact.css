@@ -1,0 +1,122 @@
+.contact-container {
+  width: 100%;
+  min-height: 100vh;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px;
+  position: relative; /* allow absolute decorative elements */
+}
+
+.contact-content {
+  text-align: center;
+  max-width: 800px;
+}
+
+.contact-heading {
+  font-size: 56px;
+  font-weight: 700;
+  color: #2d3436;
+  line-height: 1.2;
+  margin-bottom: 40px;
+  letter-spacing: -1px;
+}
+
+.contact-button {
+  background: linear-gradient(135deg, #FF8F8F 0%, #B7A3E3 100%);
+  color: white;
+  border: none;
+  padding: 16px 40px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 10px 30px rgba(183, 163, 227, 0.2);
+  text-decoration: none; /* remove underline for anchor links */
+  display: inline-block;
+}
+
+.contact-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(183, 163, 227, 0.3);
+}
+
+.contact-button:active {
+  transform: translateY(-2px);
+}
+
+.contact-button:focus {
+  outline: 3px solid rgba(183,163,227,0.25);
+  outline-offset: 4px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 60px 30px;
+  }
+
+  .contact-heading {
+    font-size: 40px;
+    margin-bottom: 32px;
+  }
+
+  .contact-button {
+    padding: 14px 32px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 40px 20px;
+  }
+
+  .contact-heading {
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+
+  .contact-button {
+    padding: 12px 28px;
+    font-size: 14px;
+  }
+}
+
+/* Decorative floating flowers inside contact section */
+.contact-decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-flower {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g fill='%23FF8F8F' opacity='0.95'><path d='M50 15c5 0 12 6 14 12 2 6-4 12-9 15-5 3-11 2-15-2-4-4-6-11-3-16 3-5 7-9 13-9z'/><path d='M15 50c0-5 6-12 12-14 6-2 12 4 15 9 3 5 2 11-2 15-4 4-11 6-16 3-5-3-9-7-9-13z'/><path d='M85 50c0 5-6 12-12 14-6 2-12-4-15-9-3-5-2-11 2-15 4-4 11-6 16-3 5 3 9 7 9 13z'/><path d='M50 85c-5 0-12-6-14-12-2-6 4-12 9-15 5-3 11-2 15 2 4 4 6 11 3 16-3 5-7 9-13 9z'/><circle cx='50' cy='50' r='6' fill='%23FFD9D9'/></g></svg>");
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.6;
+  filter: blur(4px) saturate(1.05);
+  transform-origin: center;
+  animation: contact-float 6s ease-in-out infinite;
+}
+
+.floating-flower.flower-1 { right: 8%; top: 10%; width: 160px; height:160px; animation-duration:7s }
+.floating-flower.flower-2 { left: 6%; bottom: 8%; width: 120px; height:120px; animation-duration:5.5s }
+.floating-flower.flower-3 { right: 22%; bottom: 22%; width: 100px; height:100px; animation-duration:8s }
+
+@keyframes contact-float {
+  0% { transform: translateY(0) rotate(0deg); opacity:0.6 }
+  50% { transform: translateY(-16px) rotate(6deg); opacity:0.95 }
+  100% { transform: translateY(0) rotate(0deg); opacity:0.6 }
+}
+
+/* Make sure content sits above decorations */
+.contact-content { z-index: 5; position: relative }

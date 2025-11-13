@@ -1,0 +1,183 @@
+.header {
+  position: fixed;
+  top: 18px;
+  left: 0;
+  right: 0;
+  margin: 0 24px;
+  z-index: 1200;
+  display: flex;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+.header .container {
+  width: 100%;
+  max-width: 1200px;
+  /* Use the global background so header matches the site background */
+  background: var(--bg-gradient);
+  backdrop-filter: blur(6px) saturate(1.02);
+  -webkit-backdrop-filter: blur(6px) saturate(1.02);
+  border-radius: 14px;
+  box-shadow: 0 10px 26px rgba(183, 163, 227, 0.06);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: auto;
+  transition: transform 0.28s cubic-bezier(.2,.9,.3,1), box-shadow 0.28s ease;
+}
+
+.header .container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(183, 163, 227, 0.1);
+}
+
+/* .container rules are now applied to .header .container above */
+
+.logo a, .logo-text { text-decoration: none; color: inherit }
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--color-dark);
+  letter-spacing: -0.6px;
+}
+
+/* Desktop Nav */
+.nav-desktop ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--color-dark);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: all 220ms cubic-bezier(.2,.9,.3,1);
+  position: relative;
+}
+
+.nav-link::after {
+  /* underline effect: thin line that scales horizontally */
+  content: '';
+  position: absolute;
+  left: 12px;
+  bottom: 6px;
+  height: 2px;
+  width: calc(100% - 24px);
+  background: var(--color-pastel-red, rgba(255,143,143,0.9));
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 220ms cubic-bezier(.2,.9,.3,1), opacity 180ms;
+  opacity: 0.95;
+}
+
+.nav-link:hover {
+  color: var(--color-dark);
+  /* keep label steady while underline animates */
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* active link shows underline */
+.nav-link.active::after {
+  transform: scaleX(1);
+}
+
+.nav-link.active {
+  color: var(--color-dark);
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: var(--color-dark);
+  transition: all 260ms cubic-bezier(.2,.9,.3,1);
+  position: relative;
+}
+
+.hamburger::before,
+.hamburger::after { content: ''; position: absolute; left: 0 }
+.hamburger::before { top: -7px }
+.hamburger::after { top: 7px }
+
+.hamburger.open { background-color: transparent }
+.hamburger.open::before { transform: rotate(45deg); top: 0 }
+.hamburger.open::after { transform: rotate(-45deg); top: 0 }
+
+/* Mobile Nav */
+.nav-mobile {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 12px;
+  right: 12px;
+  background: var(--bg-gradient);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(183,163,227,0.08);
+  padding: 12px 16px;
+  z-index: 1250;
+  /* hidden by default but keep in document flow for animation */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px) scale(.99);
+  transition: opacity 220ms cubic-bezier(.2,.9,.3,1), transform 220ms ease, visibility 220ms;
+}
+
+.nav-mobile.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.nav-mobile ul { list-style: none; margin: 0; padding: 8px 0 }
+.nav-mobile li { margin: 6px 0 }
+.nav-mobile a { display:block; padding: 8px 12px; border-radius:8px; text-decoration:none; color:var(--color-dark) }
+.nav-mobile a:hover { background: rgba(183,163,227,0.06) }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nav-desktop { display: none }
+  .menu-toggle { display: block }
+}
+
+/* Prevent fixed header/mobile nav from covering page content on small screens.
+   When the mobile menu is opened we add `nav-open` to the document body (via JS)
+   and increase the top padding so content is pushed below the menu. */
+@media (max-width: 900px) {
+  body { padding-top: 72px; }
+  body.nav-open { padding-top: 220px; }
+}
+
+@media (max-width: 480px) {
+  body { padding-top: 64px; }
+  body.nav-open { padding-top: 260px; }
+}
+
+@media (max-width: 480px) {
+  .header { margin: 10px }
+  .header .inner { padding: 10px }
+  .logo-text { font-size: 18px }
+}

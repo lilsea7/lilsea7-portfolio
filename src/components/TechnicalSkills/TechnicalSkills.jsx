@@ -8,7 +8,8 @@ const TechnicalSkills = () => {
     'Programming Languages': [
       { name: 'JavaScript', abbr: 'JS' },
       { name: 'Java', abbr: 'Java' },
-      { name: 'TypeScript', abbr: 'TS' }
+      { name: 'TypeScript', abbr: 'TS' },
+      { name: 'GDScript', abbr: 'GDS' }
     ],
     'Front End': [
       { name: 'HTML', abbr: 'HTML' },
@@ -24,7 +25,8 @@ const TechnicalSkills = () => {
     'Dev Tools': [
       { name: 'Git', abbr: 'Git' },
       { name: 'GitHub', abbr: 'GH' },
-      { name: 'Figma', abbr: 'Figma' }
+      { name: 'Figma', abbr: 'Figma' },
+      { name: 'Godot Engine', abbr: 'Godot' }
     ]
   };
 
@@ -35,6 +37,7 @@ const TechnicalSkills = () => {
     'javascript': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg',
     'java': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg',
     'typescript': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
+    'gdscript': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/godot/godot-original.svg',
     'html': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg',
     'css': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg',
     'react': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
@@ -45,6 +48,7 @@ const TechnicalSkills = () => {
     'git': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg',
     'github': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg',
     'figma': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg',
+    'godotengine': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/godot/godot-original.svg'
   };
 
   return (

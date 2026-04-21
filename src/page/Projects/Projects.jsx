@@ -38,6 +38,12 @@ const ProjectsPage = () => {
       title: 'Rentiful',
       image: '/images/bt6.png',
       link: 'https://github.com/hwamin2101/real_estate'
+    },
+    {
+      id: 7,
+      title: 'Rabbit Land',
+      image: '/images/bt7.png',
+      link: 'https://github.com/lilsea7/rabbit-land-new'
     }
   ]
 

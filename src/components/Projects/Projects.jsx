@@ -50,10 +50,18 @@ const Projects = () => {
     {
       id: 6,
       title: 'Rentiful',
-      date: 'Present',
+      date: 'Nov 2025',
       description: 'Intelligent chatbot powered by OpenAI API. Implements natural language processing and maintains conversation context for intelligent responses.',
       image: '/images/bt6.png',
       technologies: ['React', 'Node.js', 'Express','AWS', 'PostgreSQL']
+    },
+    {
+      id: 7,
+      title: 'Rabbit Land',
+      date: 'Now',
+      description: 'A farming game created using Godot Engine.',
+      image: '/images/bt7.png',
+      technologies: ['Godot Engine', 'GDScript']
     }
   ]
 
